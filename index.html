@@ -393,35 +393,22 @@ html, body {
 </div>
 
 <script>
-// ===== 개인정보 모달 제어 =====
-function openPrivacyModal(e) {
-  if (e) e.preventDefault();
-  var modal = document.getElementById('privacy_modal');
-  var iframe = document.getElementById('privacy_iframe');
-  // iframe src를 클릭 시점에 설정 (모달용 파라미터 추가)
-  if (!iframe.src || iframe.src === window.location.href) {
-    iframe.src = 'privacy.html?modal=1';
-  }
-  modal.classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-
-function closePrivacyModal(e) {
-  // overlay 클릭 시에만 닫기 (모달 안 클릭은 무시)
-  if (e && e.target.id !== 'privacy_modal' && e.type === 'click') return;
-  document.getElementById('privacy_modal').classList.remove('active');
-  document.body.style.overflow = '';
-}
-
-// ESC 키로 모달 닫기
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') {
-    var modal = document.getElementById('privacy_modal');
-    if (modal && modal.classList.contains('active')) {
-      closePrivacyModal();
+// ===== 페이지 진입 시 유입 경로 캡처 (referrer + UTM) =====
+(function() {
+  try {
+    if (!sessionStorage.getItem('arophil_initial_referrer')) {
+      sessionStorage.setItem('arophil_initial_referrer', document.referrer || '직접방문');
     }
-  }
-});
+    var params = new URLSearchParams(window.location.search);
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'].forEach(function(key) {
+      var value = params.get(key);
+      if (value && !sessionStorage.getItem('arophil_' + key)) {
+        sessionStorage.setItem('arophil_' + key, value);
+      }
+    });
+  } catch (e) {}
+})();
+
 function submitArophilForm() {
   var email = document.getElementById('form_email').value.trim();
   var name = document.getElementById('form_name').value.trim();
@@ -450,6 +437,28 @@ function submitArophilForm() {
     });
   }
   
+  // ===== 추가 필드 데이터 준비 =====
+  // 구독일 (오늘 날짜 YYYY-MM-DD)
+  var d = new Date();
+  var subscribeDate = d.getFullYear() + '-' + 
+                     String(d.getMonth() + 1).padStart(2, '0') + '-' + 
+                     String(d.getDate()).padStart(2, '0');
+  
+  // 들어온 페이지 + UTM (sessionStorage에서 가져옴)
+  var initialReferrer = '직접방문';
+  var utmSource = '', utmMedium = '', utmCampaign = '', utmContent = '';
+  try {
+    initialReferrer = sessionStorage.getItem('arophil_initial_referrer') || document.referrer || '직접방문';
+    utmSource = sessionStorage.getItem('arophil_utm_source') || '';
+    utmMedium = sessionStorage.getItem('arophil_utm_medium') || '';
+    utmCampaign = sessionStorage.getItem('arophil_utm_campaign') || '';
+    utmContent = sessionStorage.getItem('arophil_utm_content') || '';
+  } catch (e) {}
+  
+  // 그룹 값 (페이지별로 다름 - 픽셀 ID 기반)
+  var groupValue = 'landing-8212998438760459';
+  
+  // ===== hidden iframe에 폼 동적 생성 =====
   var iframe = document.getElementById('arophil_iframe');
   var doc = iframe.contentDocument || iframe.contentWindow.document;
   doc.open();
@@ -461,17 +470,26 @@ function submitArophilForm() {
   form.action = 'https://stibee.com/api/v1.0/lists/qqCU7GAhMCEl_jkcifDmr8vfM62wxw==/public/subscribers';
   form.acceptCharset = 'utf-8';
   
-  var emailInput = doc.createElement('input');
-  emailInput.type = 'hidden';
-  emailInput.name = 'email';
-  emailInput.value = email;
-  form.appendChild(emailInput);
+  // 필드 추가 헬퍼
+  function addField(fieldName, fieldValue) {
+    var input = doc.createElement('input');
+    input.type = 'hidden';
+    input.name = fieldName;
+    input.value = fieldValue || '';
+    form.appendChild(input);
+  }
   
-  var nameInput = doc.createElement('input');
-  nameInput.type = 'hidden';
-  nameInput.name = 'name';
-  nameInput.value = name;
-  form.appendChild(nameInput);
+  // 모든 필드 추가
+  addField('email', email);
+  addField('name', name);
+  addField('subscribeDate', subscribeDate);
+  addField('group', groupValue);
+  addField('adInfoYesorNo', 'Y');
+  addField('etc2', initialReferrer);
+  addField('utm_source', utmSource);
+  addField('utm_medium', utmMedium);
+  addField('utm_campaign', utmCampaign);
+  addField('utm_contetns', utmContent); // ※ 스티비 필드명 그대로 (오타 유지)
   
   doc.body.appendChild(form);
   form.submit();
@@ -480,6 +498,33 @@ function submitArophilForm() {
     window.location.href = 'thanks.html';
   }, 1000);
 }
+
+// ===== 개인정보 모달 제어 =====
+function openPrivacyModal(e) {
+  if (e) e.preventDefault();
+  var modal = document.getElementById('privacy_modal');
+  var iframe = document.getElementById('privacy_iframe');
+  if (!iframe.src || iframe.src === window.location.href) {
+    iframe.src = 'privacy.html?modal=1';
+  }
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePrivacyModal(e) {
+  if (e && e.target.id !== 'privacy_modal' && e.type === 'click') return;
+  document.getElementById('privacy_modal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    var modal = document.getElementById('privacy_modal');
+    if (modal && modal.classList.contains('active')) {
+      closePrivacyModal();
+    }
+  }
+});
 
 document.getElementById('form_email').addEventListener('keypress', function(e) {
   if (e.key === 'Enter') submitArophilForm();

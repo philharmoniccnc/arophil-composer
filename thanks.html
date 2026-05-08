@@ -129,6 +129,20 @@ html, body {
   color: var(--text-body);
 }
 
+/* 마무리 라인 */
+.journey-line {
+  text-align: center;
+  margin: 32px 0 8px;
+  padding: 20px 16px;
+  background: linear-gradient(135deg, #F0F4FA 0%, #E8EFFA 100%);
+  border-radius: 14px;
+  font-size: 15.5px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.75;
+  letter-spacing: -0.3px;
+}
+
 /* 버튼 */
 .btn-group {
   display: flex;
@@ -165,6 +179,18 @@ html, body {
   box-shadow: 0 6px 20px rgba(85, 119, 254, 0.35);
 }
 
+.btn-kakao {
+  background: #895129;
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(137, 81, 41, 0.30);
+}
+
+.btn-kakao:hover {
+  background: #6B3F1F;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(137, 81, 41, 0.40);
+}
+
 .btn-icon { font-size: 18px; line-height: 1; }
 
 /* TALK 아이콘 */
@@ -187,6 +213,14 @@ html, body {
   color: #3C1E1E;
   letter-spacing: 0.5px;
   box-shadow: 0 2px 8px rgba(254, 229, 0, 0.3);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.kakao-icon:hover {
+  transform: translateY(-2px) scale(1.08);
+  box-shadow: 0 4px 16px rgba(254, 229, 0, 0.5);
 }
 
 @media (max-width: 540px) {
@@ -231,11 +265,14 @@ html, body {
     
     <!-- 작곡가 시리즈 발송 시기 -->
     <div class="thanks-section">
-      <p class="section-title">작곡가 소개는 2~3월중 발송이 시작됩니다</p>
-      <div class="gift-list">
-        <div class="gift-line">🎁 바로크~현대 시대의 작곡가</div>
-      </div>
+      <p class="section-title">작곡가 소개는 이메일 확인하신 뒤,<br>당일 혹은 다음날 바로 발송이 시작됩니다</p>
+      <p style="margin-top:10px;">우리가 잘 알고 재미있는 작곡가는<br><strong>3일차부터 등장합니다</strong> :)</p>
     </div>
+    
+    <!-- 마무리 라인 -->
+    <p class="journey-line">
+      그럼 아로필과 함께<br>20일의 여정을 함께 해보시죠!
+    </p>
     
     <!-- 버튼 -->
     <div class="btn-group">
@@ -243,7 +280,7 @@ html, body {
         <span>웹사이트로 돌아가기</span>
         <span class="btn-icon">🏠</span>
       </a>
-      <a href="https://pf.kakao.com/_xcxfBtG" class="btn btn-primary" target="_blank" rel="noopener">
+      <a href="https://pf.kakao.com/_xcxfBtG" class="btn btn-kakao" target="_blank" rel="noopener">
         <span>카카오톡 친구 등록하기</span>
         <span class="btn-icon">💬</span>
       </a>
@@ -251,7 +288,7 @@ html, body {
     
     <!-- TALK 아이콘 -->
     <div class="kakao-icon-row">
-      <div class="kakao-icon">TALK</div>
+      <a href="https://pf.kakao.com/_xcxfBtG" class="kakao-icon" target="_blank" rel="noopener" title="아로필 카카오톡 채널">TALK</a>
     </div>
     
   </div>
