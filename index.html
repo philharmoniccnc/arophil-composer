@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>하루 한 명, 클래식 작곡가 소식 | AROPHIL</title>
+<meta name="description" content="바로크부터 현대까지, 스무 통의 편지로 만나는 클래식 작곡가. 매일 한 편씩 도착합니다.">
+
+<meta property="og:title" content="하루 한 명, 클래식 작곡가 소식 | AROPHIL">
+<meta property="og:description" content="바로크부터 현대까지, 스무 통의 편지로 만나는 클래식 작곡가">
+<meta property="og:image" content="https://gi.esmplus.com/philcnc/Arophil/composer_newsletter/marketingimg/image02.jpg">
+<meta property="og:type" content="website">
+
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '8212998438760459');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=8212998438760459&ev=PageView&noscript=1"/></noscript>
+
+<style>
+:root {
+  --primary: #5577FE;
+  --primary-hover: #3F61E8;
+  --accent: #FCD034;
+  --accent-hover: #F4C824;
+  --text-dark: #1A1A1A;
+  --text-body: #4B5563;
+  --text-muted: #6B7280;
+  --bg-page: #FAFAFC;
+  --bg-input: #F1F3F8;
+  --bg-input-focus: #E8ECF4;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-dark);
+  line-height: 1.6;
+  word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  min-height: 100vh;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-top: 24px;
+  animation: fadeInLeft 0.7s ease-out;
+}
+
+.brand-logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: -0.5px;
+}
+
+.hero-headline {
+  font-size: 44px;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1.25;
+  letter-spacing: -1.8px;
+}
+
+.hero-emoji { font-size: 32px; margin-top: 4px; }
+
+.hero-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 15px;
+  color: var(--text-body);
+  line-height: 1.85;
+  margin-top: 8px;
+}
+
+.hero-body p { margin: 0; }
+.hero-body strong { color: var(--text-dark); font-weight: 700; }
+
+.form-side {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: fadeInRight 0.7s ease-out 0.1s both;
+}
+
+.composer-image {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #1F0808;
+  margin-bottom: 8px;
+  box-shadow: 0 4px 24px rgba(31, 8, 8, 0.12);
+}
+
+.composer-image img { width: 100%; height: auto; display: block; }
+
+.input-field {
+  width: 100%;
+  padding: 18px 20px;
+  background: var(--bg-input);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  font-size: 15px;
+  font-family: inherit;
+  font-weight: 500;
+  color: var(--text-dark);
+  outline: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.input-field:focus {
+  background: var(--bg-input-focus);
+  border-color: var(--primary);
+}
+
+.input-field::placeholder { color: var(--text-muted); font-weight: 400; }
+
+.btn {
+  width: 100%;
+  padding: 18px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(85, 119, 254, 0.25);
+}
+.btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(85, 119, 254, 0.35);
+}
+
+.btn-accent {
+  background: var(--accent);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(252, 208, 52, 0.30);
+}
+.btn-accent:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(252, 208, 52, 0.40);
+}
+
+.btn-icon { font-size: 18px; line-height: 1; }
+
+.consent-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  margin: 4px 0 6px 4px;
+  line-height: 1.5;
+}
+
+.consent-row input[type="checkbox"] {
+  margin-top: 3px;
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.consent-row a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.consent-row label { cursor: pointer; }
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 40px 24px;
+    min-height: auto;
+  }
+  .hero-text { padding-top: 0; gap: 20px; }
+  .hero-headline { font-size: 32px; letter-spacing: -1.2px; }
+  .hero-emoji { font-size: 28px; }
+  .hero-body { font-size: 14.5px; }
+}
+@media (max-width: 480px) {
+  .container { padding: 32px 20px; }
+  .hero-headline { font-size: 28px; }
+  .input-field, .btn { padding: 16px 20px; font-size: 15px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="hero-text">
+    <div class="brand-logo">Arophil.</div>
+    <h1 class="hero-headline">
+      하루 한 명<br>
+      클래식 작곡가 소식<br>
+      전해드려요
+    </h1>
+    <div class="hero-emoji">🎻🎹</div>
+    
+    <div class="hero-body">
+      <p>
+        하루 한 명!<br>
+        바로크 시대부터 현대(일부)까지<br>
+        약 <strong>20여일에 걸쳐</strong> 이메일로<br>
+        작곡가 소개와 추천 곡을 보내드립니다 🖤
+      </p>
+      <p>
+        작곡가의 일생이나 비하인드 스토리<br>
+        를 들으면 평소에 알던 곡들도<br>
+        더 친숙하게 들리더라구요 😊
+      </p>
+      <p>
+        아로필 제품 소식과<br>
+        고객님을 위한 <strong>특별한 혜택</strong>도 함께<br>
+        보내드립니다 🎁
+      </p>
+      <p>
+        제품 소식 왔다고 중간에 스팸처리<br>
+        하시면 안됩니다 🖤
+      </p>
+    </div>
+  </div>
+
+  <div class="form-side">
+    <div class="composer-image">
+      <img src="https://gi.esmplus.com/philcnc/Arophil/composer_newsletter/marketingimg/image02.jpg" alt="AROPHIL Composer Series">
+    </div>
+    
+    <input type="text" id="form_name" class="input-field" placeholder="성함 혹은 닉네임" autocomplete="name">
+    <input type="email" id="form_email" class="input-field" placeholder="이메일" required autocomplete="email">
+    
+    <div class="consent-row">
+      <input type="checkbox" id="form_policy" required>
+      <label for="form_policy">
+        <a href="privacy.html" target="_blank" rel="noopener">개인정보 수집 및 이용</a>에 동의합니다 (필수)
+      </label>
+    </div>
+    
+    <button type="button" class="btn btn-primary" onclick="submitArophilForm()">
+      <span>소식 및 혜택 받아보기</span>
+      <span class="btn-icon">→</span>
+    </button>
+    
+    <a href="https://arophil.kr" class="btn btn-accent">
+      <span class="btn-icon">←</span>
+      <span>아로필 홈페이지</span>
+    </a>
+  </div>
+
+</div>
+
+<iframe id="arophil_iframe" name="arophil_iframe" style="display:none;width:0;height:0;border:0;" title="submit"></iframe>
+
+<script>
+function submitArophilForm() {
+  var email = document.getElementById('form_email').value.trim();
+  var name = document.getElementById('form_name').value.trim();
+  var policy = document.getElementById('form_policy').checked;
+  
+  if (!email || email.indexOf('@') < 1 || email.indexOf('.') < 2) {
+    alert('이메일 주소를 정확히 입력해 주세요.');
+    document.getElementById('form_email').focus();
+    return;
+  }
+  if (!policy) {
+    alert('개인정보 수집 및 이용 동의가 필요합니다.');
+    return;
+  }
+  
+  // ★ 입력 이메일을 sessionStorage에 저장 → thanks 페이지에서 표시
+  try {
+    sessionStorage.setItem('arophil_email', email);
+    if (name) sessionStorage.setItem('arophil_name', name);
+  } catch (e) {}
+  
+  if (typeof fbq === 'function') {
+    fbq('track', 'Lead', {
+      content_name: 'AROPHIL Composer Series',
+      content_category: 'Newsletter Subscription'
+    });
+  }
+  
+  var iframe = document.getElementById('arophil_iframe');
+  var doc = iframe.contentDocument || iframe.contentWindow.document;
+  doc.open();
+  doc.write('<html><body></body></html>');
+  doc.close();
+  
+  var form = doc.createElement('form');
+  form.method = 'POST';
+  form.action = 'https://stibee.com/api/v1.0/lists/qqCU7GAhMCEl_jkcifDmr8vfM62wxw==/public/subscribers';
+  form.acceptCharset = 'utf-8';
+  
+  var emailInput = doc.createElement('input');
+  emailInput.type = 'hidden';
+  emailInput.name = 'email';
+  emailInput.value = email;
+  form.appendChild(emailInput);
+  
+  var nameInput = doc.createElement('input');
+  nameInput.type = 'hidden';
+  nameInput.name = 'name';
+  nameInput.value = name;
+  form.appendChild(nameInput);
+  
+  doc.body.appendChild(form);
+  form.submit();
+  
+  setTimeout(function() {
+    window.location.href = 'thanks.html';
+  }, 1000);
+}
+
+document.getElementById('form_email').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') submitArophilForm();
+});
+document.getElementById('form_name').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') submitArophilForm();
+});
+</script>
+
+</body>
+</html>
