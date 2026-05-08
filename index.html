@@ -226,6 +226,95 @@ html, body {
   .hero-headline { font-size: 28px; }
   .input-field, .btn { padding: 16px 20px; font-size: 15px; }
 }
+
+/* ===== 개인정보 모달 ===== */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+.modal-overlay.active { display: flex; }
+
+.modal-content {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 540px;
+  height: 80vh;
+  max-height: 720px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  animation: modalScaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.06);
+  color: #1A1A1A;
+  font-size: 20px;
+  font-weight: 400;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.15s, transform 0.15s;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  background: rgba(0, 0, 0, 0.12);
+  transform: rotate(90deg);
+}
+
+.modal-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalScaleUp {
+  from { opacity: 0; transform: scale(0.94) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@media (max-width: 540px) {
+  .modal-overlay { padding: 16px; }
+  .modal-content {
+    height: 90vh;
+    max-height: none;
+    border-radius: 16px;
+  }
+  .modal-close {
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+}
 </style>
 </head>
 <body>
@@ -276,7 +365,7 @@ html, body {
     <div class="consent-row">
       <input type="checkbox" id="form_policy" required>
       <label for="form_policy">
-        <a href="privacy.html" target="_blank" rel="noopener">개인정보 수집 및 이용</a>에 동의합니다 (필수)
+        <a href="privacy.html" target="_blank" rel="noopener" onclick="openPrivacyModal(event)">개인정보 수집 및 이용</a>에 동의합니다 (필수)
       </label>
     </div>
     
@@ -295,7 +384,44 @@ html, body {
 
 <iframe id="arophil_iframe" name="arophil_iframe" style="display:none;width:0;height:0;border:0;" title="submit"></iframe>
 
+<!-- 개인정보 처리 방침 모달 -->
+<div id="privacy_modal" class="modal-overlay" onclick="closePrivacyModal(event)">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closePrivacyModal()" aria-label="닫기" type="button">×</button>
+    <iframe id="privacy_iframe" class="modal-iframe" src="" title="개인정보 처리 방침" loading="lazy"></iframe>
+  </div>
+</div>
+
 <script>
+// ===== 개인정보 모달 제어 =====
+function openPrivacyModal(e) {
+  if (e) e.preventDefault();
+  var modal = document.getElementById('privacy_modal');
+  var iframe = document.getElementById('privacy_iframe');
+  // iframe src를 클릭 시점에 설정 (모달용 파라미터 추가)
+  if (!iframe.src || iframe.src === window.location.href) {
+    iframe.src = 'privacy.html?modal=1';
+  }
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePrivacyModal(e) {
+  // overlay 클릭 시에만 닫기 (모달 안 클릭은 무시)
+  if (e && e.target.id !== 'privacy_modal' && e.type === 'click') return;
+  document.getElementById('privacy_modal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// ESC 키로 모달 닫기
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    var modal = document.getElementById('privacy_modal');
+    if (modal && modal.classList.contains('active')) {
+      closePrivacyModal();
+    }
+  }
+});
 function submitArophilForm() {
   var email = document.getElementById('form_email').value.trim();
   var name = document.getElementById('form_name').value.trim();
