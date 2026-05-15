@@ -54,7 +54,6 @@ html, body {
   grid-template-columns: 1fr 1fr;
   gap: 80px;
   align-items: start;
-  min-height: 100vh;
 }
 
 .hero-text {
@@ -382,6 +381,170 @@ html, body {
 
 </div>
 
+<!-- ============================================== -->
+<!-- AROPHIL 카테고리별 컬렉션 (4-그리드, v4)         -->
+<!-- 제목 위치 위로 / PC 페이지 폭 풀와이드 / 주황 CTA -->
+<!-- ============================================== -->
+<style>
+.arophil-products-section {
+  max-width: 1100px;
+  margin: 24px auto 40px auto;
+  padding: 0 32px;
+  box-sizing: border-box;
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.arophil-products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.arophil-product-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.arophil-product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+}
+.arophil-product-title {
+  font-size: 18px;
+  color: #1A1A1A;
+  margin: 0;
+  padding: 22px 22px 14px 22px;
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  text-align: center;
+}
+.arophil-brand-mark {
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 19px;
+}
+.arophil-product-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+.arophil-product-footer {
+  padding: 18px 22px 22px 22px;
+}
+.arophil-product-btn {
+  display: block;
+  width: 100%;
+  padding: 14px 12px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 10px;
+  box-sizing: border-box;
+  transition: transform 0.15s, box-shadow 0.15s;
+  letter-spacing: -0.3px;
+}
+.arophil-product-btn:hover { transform: translateY(-1px); }
+.arophil-btn-kakao {
+  background: #FEE500;
+  color: #1A1A1A;
+  box-shadow: 0 4px 12px rgba(254, 229, 0, 0.40);
+}
+.arophil-btn-primary {
+  background: #C96442;
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(201, 100, 66, 0.30);
+}
+.arophil-btn-primary:hover {
+  background: #B0512E;
+}
+@media (max-width: 768px) {
+  .arophil-products-section {
+    padding: 0 24px;
+    margin: 20px auto;
+  }
+  .arophil-products-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .arophil-product-title {
+    font-size: 17px;
+    padding: 20px 18px 12px 18px;
+  }
+  .arophil-brand-mark {
+    font-size: 18px;
+  }
+  .arophil-product-footer {
+    padding: 16px 18px 20px 18px;
+  }
+  .arophil-product-btn {
+    font-size: 14.5px;
+    padding: 13px;
+  }
+}
+@media (max-width: 480px) {
+  .arophil-products-section {
+    padding: 0 20px;
+  }
+}
+</style>
+
+<section class="arophil-products-section">
+  <div class="arophil-products-grid">
+
+    <!-- 카드 1: 바이올린 디퓨저 -->
+    <div class="arophil-product-card">
+      <p class="arophil-product-title">
+        <span class="arophil-brand-mark">Arophil.</span> 바이올린 디퓨저 컬렉션
+      </p>
+      <img src="https://gi.esmplus.com/philcnc/Arophil/composer_newsletter/marketingimg/photoshop-800-600.jpg" alt="Arophil 바이올린 디퓨저 컬렉션">
+      <div class="arophil-product-footer">
+        <a href="https://arophil.kr/product/%EC%95%84%EB%A1%9C%ED%95%84-%ED%8D%BC%ED%93%B8-%EC%95%84%EB%A1%9C%EB%A7%88-%EB%8C%80%EC%9A%A9%EB%9F%89-%EB%B0%94%EC%9D%B4%EC%98%AC%EB%A6%B0-%EB%94%94%ED%93%A8%EC%A0%80-720ml-%EC%A0%84%EC%B2%B4%ED%96%A5/136/category/65/display/1/?utm_source=landing&utm_medium=cta&utm_campaign=composer-organic&utm_content=violin-diffuser-index" target="_blank" rel="noopener" class="arophil-product-btn arophil-btn-kakao">선물하기</a>
+      </div>
+    </div>
+
+    <!-- 카드 2: 향수 -->
+    <div class="arophil-product-card">
+      <p class="arophil-product-title">
+        <span class="arophil-brand-mark">Arophil.</span>의 향수 컬렉션
+      </p>
+      <img src="https://gi.esmplus.com/philcnc/Arophil/composer_newsletter/marketingimg/perfume/800-600.png" alt="Arophil 향수 컬렉션">
+      <div class="arophil-product-footer">
+        <a href="https://arophil.kr/category/%ED%96%A5%EC%88%98/68/?utm_source=landing&utm_medium=cta&utm_campaign=composer-organic&utm_content=perfume-index" target="_blank" rel="noopener" class="arophil-product-btn arophil-btn-primary">향수 보러가기</a>
+      </div>
+    </div>
+
+    <!-- 카드 3: 사쉐 -->
+    <div class="arophil-product-card">
+      <p class="arophil-product-title">
+        <span class="arophil-brand-mark">Arophil.</span> 사쉐 컬렉션
+      </p>
+      <img src="https://gi.esmplus.com/philcnc/Arophil/composer_newsletter/marketingimg/sachet/sachet800-600.png" alt="Arophil 사쉐 컬렉션">
+      <div class="arophil-product-footer">
+        <a href="https://arophil.kr/category/%EC%82%AC%EC%89%90/66/?utm_source=landing&utm_medium=cta&utm_campaign=composer-organic&utm_content=sachet-index" target="_blank" rel="noopener" class="arophil-product-btn arophil-btn-primary">사쉐 보러가기</a>
+      </div>
+    </div>
+
+    <!-- 카드 4: 디스커버리 -->
+    <div class="arophil-product-card">
+      <p class="arophil-product-title">
+        <span class="arophil-brand-mark">Arophil.</span> 디스커버리 패키지
+      </p>
+      <img src="https://gi.esmplus.com/philcnc/Arophil/composer_newsletter/marketingimg/discovery/discovery-800-600.png" alt="Arophil 디스커버리 패키지">
+      <div class="arophil-product-footer">
+        <a href="https://arophil.kr/category/%EB%94%94%EC%8A%A4%EC%BB%A4%EB%B2%84%EB%A6%AC-%EC%8B%9C%ED%96%A5%EC%A7%80/98/?utm_source=landing&utm_medium=cta&utm_campaign=composer-organic&utm_content=discovery-index" target="_blank" rel="noopener" class="arophil-product-btn arophil-btn-primary">시향지로 즐겨보기</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <iframe id="arophil_iframe" name="arophil_iframe" style="display:none;width:0;height:0;border:0;" title="submit"></iframe>
 
 <!-- 개인정보 처리 방침 모달 -->
@@ -467,8 +630,29 @@ function submitArophilForm() {
   
   var form = doc.createElement('form');
   form.method = 'POST';
-  form.action = 'https://stibee.com/api/v1.0/lists/qqCU7GAhMCEl_jkcifDmr8vfM62wxw==/public/subscribers';
   form.acceptCharset = 'utf-8';
+  
+  // ===== 사용자 정의 필드를 URL query string으로 빌드 =====
+  // (스티비는 사용자 정의 필드를 form data가 아닌 URL 파라미터로 처리)
+  var baseUrl = 'https://stibee.com/api/v1.0/lists/qqCU7GAhMCEl_jkcifDmr8vfM62wxw==/public/subscribers';
+  var customFields = {
+    subscribeDate: subscribeDate,
+    group: groupValue,
+    adInfoYesorNo: 'Y',
+    etc2: initialReferrer,
+    utm_source: utmSource,
+    utm_medium: utmMedium,
+    utm_campaign: utmCampaign,
+    utm_contetns: utmContent
+  };
+  var queryParts = [];
+  Object.keys(customFields).forEach(function(key) {
+    var val = customFields[key];
+    if (val !== undefined && val !== null && val !== '') {
+      queryParts.push(encodeURIComponent(key) + '=' + encodeURIComponent(val));
+    }
+  });
+  form.action = baseUrl + (queryParts.length > 0 ? '?' + queryParts.join('&') : '');
   
   // 필드 추가 헬퍼
   function addField(fieldName, fieldValue) {
@@ -479,17 +663,9 @@ function submitArophilForm() {
     form.appendChild(input);
   }
   
-  // 모든 필드 추가
+  // email, name만 form data로 전송 (필수 필드)
   addField('email', email);
   addField('name', name);
-  addField('subscribeDate', subscribeDate);
-  addField('group', groupValue);
-  addField('adInfoYesorNo', 'Y');
-  addField('etc2', initialReferrer);
-  addField('utm_source', utmSource);
-  addField('utm_medium', utmMedium);
-  addField('utm_campaign', utmCampaign);
-  addField('utm_contetns', utmContent); // ※ 스티비 필드명 그대로 (오타 유지)
   
   doc.body.appendChild(form);
   form.submit();

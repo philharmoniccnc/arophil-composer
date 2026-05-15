@@ -3,7 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>구독 신청 완료 | AROPHIL</title>
+<title>하루 한 명, 클래식 작곡가 소식 | AROPHIL</title>
+<meta name="description" content="바로크부터 현대까지, 스무 통의 편지로 만나는 클래식 작곡가. 매일 한 편씩 도착합니다.">
+
+<meta property="og:title" content="하루 한 명, 클래식 작곡가 소식 | AROPHIL">
+<meta property="og:description" content="바로크부터 현대까지, 스무 통의 편지로 만나는 클래식 작곡가">
+<meta property="og:image" content="https://gi.esmplus.com/philcnc/Arophil/composer_newsletter/marketingimg/image02.jpg">
+<meta property="og:type" content="website">
 
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
 
@@ -12,24 +18,21 @@
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '8212998438760459');
 fbq('track', 'PageView');
-fbq('track', 'CompleteRegistration', {
-  content_name: 'AROPHIL Composer Series',
-  status: 'completed'
-});
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=8212998438760459&ev=PageView&noscript=1"/></noscript>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=8212998438760459&ev=CompleteRegistration&noscript=1"/></noscript>
 
 <style>
 :root {
   --primary: #5577FE;
   --primary-hover: #3F61E8;
-  --kakao: #FEE500;
+  --accent: #FCD034;
+  --accent-hover: #F4C824;
   --text-dark: #1A1A1A;
   --text-body: #4B5563;
   --text-muted: #6B7280;
-  --bg-page: #EEF2FA;
-  --bg-callout: #F0F4FA;
+  --bg-page: #FAFAFC;
+  --bg-input: #F1F3F8;
+  --bg-input-focus: #E8ECF4;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -41,115 +44,94 @@ html, body {
   line-height: 1.6;
   word-break: keep-all;
   -webkit-font-smoothing: antialiased;
-  min-height: 100vh;
 }
 
-.thanks-container {
-  max-width: 540px;
+.container {
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 60px 24px 32px;
+  padding: 60px 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
 }
 
-.thanks-card {
-  background: #FFFFFF;
-  border-radius: 24px;
-  padding: 56px 48px 48px;
-  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.04);
-  animation: fadeUp 0.6s ease-out;
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-top: 24px;
+  animation: fadeInLeft 0.7s ease-out;
 }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+.brand-logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: -0.5px;
 }
 
-.thanks-headline {
+.hero-headline {
   font-size: 44px;
   font-weight: 800;
   color: var(--primary);
-  letter-spacing: -1.6px;
-  margin-bottom: 32px;
+  line-height: 1.25;
+  letter-spacing: -1.8px;
 }
 
-.section-title {
-  font-size: 16.5px;
-  font-weight: 800;
-  color: var(--text-dark);
-  margin-bottom: 12px;
-  letter-spacing: -0.3px;
-}
+.hero-emoji { font-size: 32px; margin-top: 4px; }
 
-.thanks-section {
-  margin-bottom: 24px;
-  font-size: 14.5px;
-  line-height: 1.85;
-  color: var(--text-body);
-}
-
-.thanks-section p { margin: 0; }
-.thanks-section p + p { margin-top: 4px; }
-
-/* 입력한 이메일 표시 박스 */
-.email-callout {
-  background: var(--bg-callout);
-  border-left: 3px solid var(--primary);
-  border-radius: 8px;
-  padding: 16px 18px;
-  margin: 16px 0 20px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.email-icon {
-  font-size: 22px;
-  flex-shrink: 0;
-}
-
-.email-text {
-  font-size: 14px;
-  line-height: 1.65;
-  color: var(--text-dark);
-}
-
-.email-address {
-  color: var(--primary);
-  font-weight: 700;
-  word-break: break-all;
-}
-
-/* 작곡가 소개 시기 안내 */
-.gift-list { margin-top: 6px; }
-
-.gift-line {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14.5px;
-  color: var(--text-body);
-}
-
-/* 마무리 라인 */
-.journey-line {
-  text-align: center;
-  margin: 32px 0 8px;
-  padding: 20px 16px;
-  background: linear-gradient(135deg, #F0F4FA 0%, #E8EFFA 100%);
-  border-radius: 14px;
-  font-size: 15.5px;
-  font-weight: 700;
-  color: var(--primary);
-  line-height: 1.75;
-  letter-spacing: -0.3px;
-}
-
-/* 버튼 */
-.btn-group {
+.hero-body {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-top: 36px;
+  gap: 20px;
+  font-size: 15px;
+  color: var(--text-body);
+  line-height: 1.85;
+  margin-top: 8px;
 }
+
+.hero-body p { margin: 0; }
+.hero-body strong { color: var(--text-dark); font-weight: 700; }
+
+.form-side {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: fadeInRight 0.7s ease-out 0.1s both;
+}
+
+.composer-image {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #1F0808;
+  margin-bottom: 8px;
+  box-shadow: 0 4px 24px rgba(31, 8, 8, 0.12);
+}
+
+.composer-image img { width: 100%; height: auto; display: block; }
+
+.input-field {
+  width: 100%;
+  padding: 18px 20px;
+  background: var(--bg-input);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  font-size: 15px;
+  font-family: inherit;
+  font-weight: 500;
+  color: var(--text-dark);
+  outline: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.input-field:focus {
+  background: var(--bg-input-focus);
+  border-color: var(--primary);
+}
+
+.input-field::placeholder { color: var(--text-muted); font-weight: 400; }
 
 .btn {
   width: 100%;
@@ -172,139 +154,559 @@ html, body {
   color: #FFFFFF;
   box-shadow: 0 4px 14px rgba(85, 119, 254, 0.25);
 }
-
 .btn-primary:hover {
   background: var(--primary-hover);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(85, 119, 254, 0.35);
 }
 
-.btn-kakao {
-  background: #895129;
+.btn-accent {
+  background: var(--accent);
   color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(137, 81, 41, 0.30);
+  box-shadow: 0 4px 14px rgba(252, 208, 52, 0.30);
 }
-
-.btn-kakao:hover {
-  background: #6B3F1F;
+.btn-accent:hover {
+  background: var(--accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(137, 81, 41, 0.40);
+  box-shadow: 0 6px 20px rgba(252, 208, 52, 0.40);
 }
 
 .btn-icon { font-size: 18px; line-height: 1; }
 
-/* TALK 아이콘 */
-.kakao-icon-row {
+.consent-row {
   display: flex;
-  justify-content: center;
-  margin-top: 36px;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  margin: 4px 0 6px 4px;
+  line-height: 1.5;
 }
 
-.kakao-icon {
-  width: 44px;
-  height: 44px;
+.consent-row input[type="checkbox"] {
+  margin-top: 3px;
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.consent-row a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.consent-row label { cursor: pointer; }
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 40px 24px;
+    min-height: auto;
+  }
+  .hero-text { padding-top: 0; gap: 20px; }
+  .hero-headline { font-size: 32px; letter-spacing: -1.2px; }
+  .hero-emoji { font-size: 28px; }
+  .hero-body { font-size: 14.5px; }
+}
+@media (max-width: 480px) {
+  .container { padding: 32px 20px; }
+  .hero-headline { font-size: 28px; }
+  .input-field, .btn { padding: 16px 20px; font-size: 15px; }
+}
+
+/* ===== 개인정보 모달 ===== */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+.modal-overlay.active { display: flex; }
+
+.modal-content {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 540px;
+  height: 80vh;
+  max-height: 720px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  animation: modalScaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: var(--kakao);
+  border: none;
+  background: rgba(0, 0, 0, 0.06);
+  color: #1A1A1A;
+  font-size: 20px;
+  font-weight: 400;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 800;
-  font-size: 11px;
-  color: #3C1E1E;
-  letter-spacing: 0.5px;
-  box-shadow: 0 2px 8px rgba(254, 229, 0, 0.3);
-  text-decoration: none;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  z-index: 10;
+  transition: background 0.15s, transform 0.15s;
+  line-height: 1;
 }
 
-.kakao-icon:hover {
-  transform: translateY(-2px) scale(1.08);
-  box-shadow: 0 4px 16px rgba(254, 229, 0, 0.5);
+.modal-close:hover {
+  background: rgba(0, 0, 0, 0.12);
+  transform: rotate(90deg);
+}
+
+.modal-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalScaleUp {
+  from { opacity: 0; transform: scale(0.94) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 @media (max-width: 540px) {
-  .thanks-container { padding: 32px 16px 24px; }
-  .thanks-card { padding: 40px 28px 36px; border-radius: 20px; }
-  .thanks-headline { font-size: 34px; letter-spacing: -1.2px; margin-bottom: 24px; }
-  .btn { padding: 16px 20px; font-size: 15px; }
+  .modal-overlay { padding: 16px; }
+  .modal-content {
+    height: 90vh;
+    max-height: none;
+    border-radius: 16px;
+  }
+  .modal-close {
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
 }
 </style>
 </head>
 <body>
 
-<div class="thanks-container">
-  <div class="thanks-card">
+<div class="container">
+
+  <div class="hero-text">
+    <div class="brand-logo">Arophil.</div>
+    <h1 class="hero-headline">
+      하루 한 명<br>
+      클래식 작곡가 소식<br>
+      전해드려요
+    </h1>
+    <div class="hero-emoji">🎻🎹</div>
     
-    <h1 class="thanks-headline">감사합니다!</h1>
-    
-    <!-- 핵심 안내: 메일 확인 필수 -->
-    <div class="thanks-section">
-      <p class="section-title">메일 확인을 하셔야 최종 완료됩니다!</p>
+    <div class="hero-body">
+      <p>
+        하루 한 명!<br>
+        바로크 시대부터 현대(일부)까지<br>
+        약 <strong>20여일에 걸쳐</strong> 이메일로<br>
+        작곡가 소개와 추천 곡을 보내드립니다 🖤
+      </p>
+      <p>
+        작곡가의 일생이나 비하인드 스토리<br>
+        를 들으면 평소에 알던 곡들도<br>
+        더 친숙하게 들리더라구요 😊
+      </p>
+      <p>
+        아로필 제품 소식과<br>
+        고객님을 위한 <strong>특별한 혜택</strong>도 함께<br>
+        보내드립니다 🎁
+      </p>
+      <p>
+        제품 소식 왔다고 중간에 스팸처리<br>
+        하시면 안됩니다 🖤
+      </p>
+    </div>
+  </div>
+
+  <div class="form-side">
+    <div class="composer-image">
+      <img src="https://gi.esmplus.com/philcnc/Arophil/composer_newsletter/marketingimg/image02.jpg" alt="AROPHIL Composer Series">
     </div>
     
-    <!-- 입력한 이메일 표시 -->
-    <div class="email-callout">
-      <div class="email-icon">📧</div>
-      <div class="email-text">
-        <span class="email-address" id="user_email">입력하신 이메일</span> 으로<br>
-        확인 이메일이 발송되었습니다!
+    <input type="text" id="form_name" class="input-field" placeholder="성함 혹은 닉네임" autocomplete="name">
+    <input type="email" id="form_email" class="input-field" placeholder="이메일" required autocomplete="email">
+    
+    <div class="consent-row">
+      <input type="checkbox" id="form_policy" required>
+      <label for="form_policy">
+        <a href="privacy.html" target="_blank" rel="noopener" onclick="openPrivacyModal(event)">개인정보 수집 및 이용</a>에 동의합니다 (필수)
+      </label>
+    </div>
+    
+    <button type="button" class="btn btn-primary" onclick="submitArophilForm()">
+      <span>소식 및 혜택 받아보기</span>
+      <span class="btn-icon">→</span>
+    </button>
+    
+    <a href="https://arophil.kr" class="btn btn-accent">
+      <span class="btn-icon">←</span>
+      <span>아로필 홈페이지</span>
+    </a>
+  </div>
+
+</div>
+
+<!-- ============================================== -->
+<!-- AROPHIL 카테고리별 컬렉션 (4-그리드, v4)         -->
+<!-- 제목 위치 위로 / PC 페이지 폭 풀와이드 / 주황 CTA -->
+<!-- ============================================== -->
+<style>
+.arophil-products-section {
+  max-width: 1100px;
+  margin: 24px auto 40px auto;
+  padding: 0 32px;
+  box-sizing: border-box;
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.arophil-products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.arophil-product-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.arophil-product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+}
+.arophil-product-title {
+  font-size: 18px;
+  color: #1A1A1A;
+  margin: 0;
+  padding: 22px 22px 14px 22px;
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  text-align: center;
+}
+.arophil-brand-mark {
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 19px;
+}
+.arophil-product-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+.arophil-product-footer {
+  padding: 18px 22px 22px 22px;
+}
+.arophil-product-btn {
+  display: block;
+  width: 100%;
+  padding: 14px 12px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 10px;
+  box-sizing: border-box;
+  transition: transform 0.15s, box-shadow 0.15s;
+  letter-spacing: -0.3px;
+}
+.arophil-product-btn:hover { transform: translateY(-1px); }
+.arophil-btn-kakao {
+  background: #FEE500;
+  color: #1A1A1A;
+  box-shadow: 0 4px 12px rgba(254, 229, 0, 0.40);
+}
+.arophil-btn-primary {
+  background: #C96442;
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(201, 100, 66, 0.30);
+}
+.arophil-btn-primary:hover {
+  background: #B0512E;
+}
+@media (max-width: 768px) {
+  .arophil-products-section {
+    padding: 0 24px;
+    margin: 20px auto;
+  }
+  .arophil-products-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .arophil-product-title {
+    font-size: 17px;
+    padding: 20px 18px 12px 18px;
+  }
+  .arophil-brand-mark {
+    font-size: 18px;
+  }
+  .arophil-product-footer {
+    padding: 16px 18px 20px 18px;
+  }
+  .arophil-product-btn {
+    font-size: 14.5px;
+    padding: 13px;
+  }
+}
+@media (max-width: 480px) {
+  .arophil-products-section {
+    padding: 0 20px;
+  }
+}
+</style>
+
+<section class="arophil-products-section">
+  <div class="arophil-products-grid">
+
+    <!-- 카드 1: 바이올린 디퓨저 -->
+    <div class="arophil-product-card">
+      <p class="arophil-product-title">
+        <span class="arophil-brand-mark">Arophil.</span> 바이올린 디퓨저 컬렉션
+      </p>
+      <img src="https://gi.esmplus.com/philcnc/Arophil/composer_newsletter/marketingimg/photoshop-800-600.jpg" alt="Arophil 바이올린 디퓨저 컬렉션">
+      <div class="arophil-product-footer">
+        <a href="https://arophil.kr/product/%EC%95%84%EB%A1%9C%ED%95%84-%ED%8D%BC%ED%93%B8-%EC%95%84%EB%A1%9C%EB%A7%88-%EB%8C%80%EC%9A%A9%EB%9F%89-%EB%B0%94%EC%9D%B4%EC%98%AC%EB%A6%B0-%EB%94%94%ED%93%A8%EC%A0%80-720ml-%EC%A0%84%EC%B2%B4%ED%96%A5/136/category/65/display/1/?utm_source=landing&utm_medium=cta&utm_campaign=composer-organic&utm_content=violin-diffuser-index" target="_blank" rel="noopener" class="arophil-product-btn arophil-btn-kakao">선물하기</a>
       </div>
     </div>
-    
-    <div class="thanks-section">
-      <p>이메일주소 스팸 방지를 위해 확인 메일이 발송됩니다.</p>
-      <p>확인 메일이 도착하지 않으신 경우엔 스팸함을 확인해주세요!</p>
+
+    <!-- 카드 2: 향수 -->
+    <div class="arophil-product-card">
+      <p class="arophil-product-title">
+        <span class="arophil-brand-mark">Arophil.</span>의 향수 컬렉션
+      </p>
+      <img src="https://gi.esmplus.com/philcnc/Arophil/composer_newsletter/marketingimg/perfume/800-600.png" alt="Arophil 향수 컬렉션">
+      <div class="arophil-product-footer">
+        <a href="https://arophil.kr/category/%ED%96%A5%EC%88%98/68/?utm_source=landing&utm_medium=cta&utm_campaign=composer-organic&utm_content=perfume-index" target="_blank" rel="noopener" class="arophil-product-btn arophil-btn-primary">향수 보러가기</a>
+      </div>
     </div>
-    
-    <!-- 카카오톡 안내 -->
-    <div class="thanks-section">
-      <p>문의가 있으시거나, 제품/행사 소식을<br>받아보실 분께선 아래 카카오톡 버튼을 통해 카카오톡 친구를 등록해주세요 🎻</p>
-      <p>(@아로필 혹은 아래 버튼으로 등록하기)</p>
+
+    <!-- 카드 3: 사쉐 -->
+    <div class="arophil-product-card">
+      <p class="arophil-product-title">
+        <span class="arophil-brand-mark">Arophil.</span> 사쉐 컬렉션
+      </p>
+      <img src="https://gi.esmplus.com/philcnc/Arophil/composer_newsletter/marketingimg/sachet/sachet800-600.png" alt="Arophil 사쉐 컬렉션">
+      <div class="arophil-product-footer">
+        <a href="https://arophil.kr/category/%EC%82%AC%EC%89%90/66/?utm_source=landing&utm_medium=cta&utm_campaign=composer-organic&utm_content=sachet-index" target="_blank" rel="noopener" class="arophil-product-btn arophil-btn-primary">사쉐 보러가기</a>
+      </div>
     </div>
-    
-    <!-- 작곡가 시리즈 발송 시기 -->
-    <div class="thanks-section">
-      <p class="section-title">작곡가 소개는 이메일 확인하신 뒤,<br>당일 혹은 다음날 바로 발송이 시작됩니다</p>
-      <p style="margin-top:10px;">우리가 잘 알고 재미있는 작곡가는<br><strong>3일차부터 등장합니다</strong> :)</p>
+
+    <!-- 카드 4: 디스커버리 -->
+    <div class="arophil-product-card">
+      <p class="arophil-product-title">
+        <span class="arophil-brand-mark">Arophil.</span> 디스커버리 패키지
+      </p>
+      <img src="https://gi.esmplus.com/philcnc/Arophil/composer_newsletter/marketingimg/discovery/discovery-800-600.png" alt="Arophil 디스커버리 패키지">
+      <div class="arophil-product-footer">
+        <a href="https://arophil.kr/category/%EB%94%94%EC%8A%A4%EC%BB%A4%EB%B2%84%EB%A6%AC-%EC%8B%9C%ED%96%A5%EC%A7%80/98/?utm_source=landing&utm_medium=cta&utm_campaign=composer-organic&utm_content=discovery-index" target="_blank" rel="noopener" class="arophil-product-btn arophil-btn-primary">시향지로 즐겨보기</a>
+      </div>
     </div>
-    
-    <!-- 마무리 라인 -->
-    <p class="journey-line">
-      그럼 아로필과 함께<br>20일의 여정을 함께 해보시죠!
-    </p>
-    
-    <!-- 버튼 -->
-    <div class="btn-group">
-      <a href="https://arophil.kr" class="btn btn-primary">
-        <span>웹사이트로 돌아가기</span>
-        <span class="btn-icon">🏠</span>
-      </a>
-      <a href="https://pf.kakao.com/_xcxfBtG" class="btn btn-kakao" target="_blank" rel="noopener">
-        <span>카카오톡 친구 등록하기</span>
-        <span class="btn-icon">💬</span>
-      </a>
-    </div>
-    
-    <!-- TALK 아이콘 -->
-    <div class="kakao-icon-row">
-      <a href="https://pf.kakao.com/_xcxfBtG" class="kakao-icon" target="_blank" rel="noopener" title="아로필 카카오톡 채널">TALK</a>
-    </div>
-    
+
+  </div>
+</section>
+
+<iframe id="arophil_iframe" name="arophil_iframe" style="display:none;width:0;height:0;border:0;" title="submit"></iframe>
+
+<!-- 개인정보 처리 방침 모달 -->
+<div id="privacy_modal" class="modal-overlay" onclick="closePrivacyModal(event)">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closePrivacyModal()" aria-label="닫기" type="button">×</button>
+    <iframe id="privacy_iframe" class="modal-iframe" src="" title="개인정보 처리 방침" loading="lazy"></iframe>
   </div>
 </div>
 
 <script>
-// sessionStorage에서 입력한 이메일 불러와 표시
-window.addEventListener('DOMContentLoaded', function() {
+// ===== 페이지 진입 시 유입 경로 캡처 (referrer + UTM) =====
+(function() {
   try {
-    var savedEmail = sessionStorage.getItem('arophil_email');
-    if (savedEmail) {
-      document.getElementById('user_email').textContent = savedEmail;
+    if (!sessionStorage.getItem('arophil_initial_referrer')) {
+      sessionStorage.setItem('arophil_initial_referrer', document.referrer || '직접방문');
     }
-  } catch (e) {
-    // sessionStorage 차단된 환경 - 기본 텍스트 유지
+    var params = new URLSearchParams(window.location.search);
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'].forEach(function(key) {
+      var value = params.get(key);
+      if (value && !sessionStorage.getItem('arophil_' + key)) {
+        sessionStorage.setItem('arophil_' + key, value);
+      }
+    });
+  } catch (e) {}
+})();
+
+function submitArophilForm() {
+  var email = document.getElementById('form_email').value.trim();
+  var name = document.getElementById('form_name').value.trim();
+  var policy = document.getElementById('form_policy').checked;
+  
+  if (!email || email.indexOf('@') < 1 || email.indexOf('.') < 2) {
+    alert('이메일 주소를 정확히 입력해 주세요.');
+    document.getElementById('form_email').focus();
+    return;
   }
+  if (!policy) {
+    alert('개인정보 수집 및 이용 동의가 필요합니다.');
+    return;
+  }
+  
+  // ★ 입력 이메일을 sessionStorage에 저장 → thanks 페이지에서 표시
+  try {
+    sessionStorage.setItem('arophil_email', email);
+    if (name) sessionStorage.setItem('arophil_name', name);
+  } catch (e) {}
+  
+  if (typeof fbq === 'function') {
+    fbq('track', 'Lead', {
+      content_name: 'AROPHIL Composer Series',
+      content_category: 'Newsletter Subscription'
+    });
+  }
+  
+  // ===== 추가 필드 데이터 준비 =====
+  // 구독일 (오늘 날짜 YYYY-MM-DD)
+  var d = new Date();
+  var subscribeDate = d.getFullYear() + '-' + 
+                     String(d.getMonth() + 1).padStart(2, '0') + '-' + 
+                     String(d.getDate()).padStart(2, '0');
+  
+  // 들어온 페이지 + UTM (sessionStorage에서 가져옴)
+  var initialReferrer = '직접방문';
+  var utmSource = '', utmMedium = '', utmCampaign = '', utmContent = '';
+  try {
+    initialReferrer = sessionStorage.getItem('arophil_initial_referrer') || document.referrer || '직접방문';
+    utmSource = sessionStorage.getItem('arophil_utm_source') || '';
+    utmMedium = sessionStorage.getItem('arophil_utm_medium') || '';
+    utmCampaign = sessionStorage.getItem('arophil_utm_campaign') || '';
+    utmContent = sessionStorage.getItem('arophil_utm_content') || '';
+  } catch (e) {}
+  
+  // 그룹 값 (페이지별로 다름 - 픽셀 ID 기반)
+  var groupValue = 'landing-8212998438760459';
+  
+  // ===== hidden iframe에 폼 동적 생성 =====
+  var iframe = document.getElementById('arophil_iframe');
+  var doc = iframe.contentDocument || iframe.contentWindow.document;
+  doc.open();
+  doc.write('<html><body></body></html>');
+  doc.close();
+  
+  var form = doc.createElement('form');
+  form.method = 'POST';
+  form.acceptCharset = 'utf-8';
+  
+  // ===== 사용자 정의 필드를 URL query string으로 빌드 =====
+  // (스티비는 사용자 정의 필드를 form data가 아닌 URL 파라미터로 처리)
+  var baseUrl = 'https://stibee.com/api/v1.0/lists/qqCU7GAhMCEl_jkcifDmr8vfM62wxw==/public/subscribers';
+  var customFields = {
+    subscribeDate: subscribeDate,
+    group: groupValue,
+    adInfoYesorNo: 'Y',
+    etc2: initialReferrer,
+    utm_source: utmSource,
+    utm_medium: utmMedium,
+    utm_campaign: utmCampaign,
+    utm_contetns: utmContent
+  };
+  var queryParts = [];
+  Object.keys(customFields).forEach(function(key) {
+    var val = customFields[key];
+    if (val !== undefined && val !== null && val !== '') {
+      queryParts.push(encodeURIComponent(key) + '=' + encodeURIComponent(val));
+    }
+  });
+  form.action = baseUrl + (queryParts.length > 0 ? '?' + queryParts.join('&') : '');
+  
+  // 필드 추가 헬퍼
+  function addField(fieldName, fieldValue) {
+    var input = doc.createElement('input');
+    input.type = 'hidden';
+    input.name = fieldName;
+    input.value = fieldValue || '';
+    form.appendChild(input);
+  }
+  
+  // email, name만 form data로 전송 (필수 필드)
+  addField('email', email);
+  addField('name', name);
+  
+  doc.body.appendChild(form);
+  form.submit();
+  
+  setTimeout(function() {
+    window.location.href = 'thanks.html';
+  }, 1000);
+}
+
+// ===== 개인정보 모달 제어 =====
+function openPrivacyModal(e) {
+  if (e) e.preventDefault();
+  var modal = document.getElementById('privacy_modal');
+  var iframe = document.getElementById('privacy_iframe');
+  if (!iframe.src || iframe.src === window.location.href) {
+    iframe.src = 'privacy.html?modal=1';
+  }
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePrivacyModal(e) {
+  if (e && e.target.id !== 'privacy_modal' && e.type === 'click') return;
+  document.getElementById('privacy_modal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    var modal = document.getElementById('privacy_modal');
+    if (modal && modal.classList.contains('active')) {
+      closePrivacyModal();
+    }
+  }
+});
+
+document.getElementById('form_email').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') submitArophilForm();
+});
+document.getElementById('form_name').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') submitArophilForm();
 });
 </script>
 
